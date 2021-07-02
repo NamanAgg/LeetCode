@@ -19,27 +19,43 @@
 // -231 <= Node.val <= 231 - 1
 public class ValidateBST {
     public boolean isValidBST(TreeNode root) {
-        TreeNode[] prev = new TreeNode[1];
-        prev[0] = null;
-
-        return isValidBST_01(root, prev);
-
+        return isValidBST_02(root);
     }
 
-    public boolean isValidBST_01(TreeNode root, TreeNode[] prev) {
-        if (root == null)
-            return true;
+    public TreeNode getRightMostNode(TreeNode node, TreeNode curr) {
+        while (node.right != null && node.right != curr) {
+            node = node.right;
+        }
 
-        if (!isValidBST_01(root.left, prev))
-            return false;
+        return node;
+    }
 
-        if (prev[0] != null && prev[0].val >= root.val)
-            return false;
+    public boolean isValidBST_02(TreeNode root) {
+        long prev = -(long) 1e13;
+        TreeNode curr = root;
+        while (curr != null) {
+            TreeNode left = curr.left;
+            if (left == null) {
+                if (prev >= curr.val)
+                    return false;
 
-        prev[0] = root;
+                prev = curr.val;
+                curr = curr.right;
+            } else {
+                TreeNode rightMostNode = getRightMostNode(left, curr);
+                if (rightMostNode.right == null) {
+                    rightMostNode.right = curr;
+                    curr = curr.left;
+                } else {
+                    rightMostNode.right = null;
+                    if (prev >= curr.val)
+                        return false;
+                    prev = curr.val;
 
-        if (!isValidBST_01(root.right, prev))
-            return false;
+                    curr = curr.right;
+                }
+            }
+        }
 
         return true;
     }
