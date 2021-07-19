@@ -32,6 +32,12 @@
 // The lengths of string A, B and S are between 1 and 1000.
 // String A and B are of the same length.
 public class LexicographicallySmallestEquivalentString{
+    int[] par, size;
+
+    public int findPar(int u) {
+        return par[u] == u ? u : (par[u] = findPar(par[u]));
+    }
+
     public String smallestEquivalentString(String s1, String s2, String baseStr) {
 
         par = new int[26];
