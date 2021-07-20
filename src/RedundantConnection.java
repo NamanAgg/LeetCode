@@ -29,13 +29,6 @@ public class RedundantConnection{
     public int findPar(int u) {
         return par[u] == u ? u : (par[u] = findPar(par[u]));
     }
-    public  void union(int p1, int p2) {
-         if(par[p1]!=p1&&par[p2]!=p2){
-             union(par[p1],par[p2]);
-         }
-        if(par[p1]!=p1) par[p2]=par[p1];
-        else par[p1]=par[p2];
-    }
     public int[] findRedundantConnection(int[][] edges) {
      int n=edges.length;
         int[]ans=new int[2];
@@ -49,7 +42,7 @@ public class RedundantConnection{
             int aPar=findPar(a);
             int bPar=findPar(b);
             if(aPar!=bPar)
-                union(a,b);
+                par[bPar]=aPar;
             else{
                 ans[0]=a+1;
                 ans[1]=b+1;
