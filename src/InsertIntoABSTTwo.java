@@ -23,7 +23,8 @@
 // All the values Node.val are unique.
 // -108 <= val <= 108
 // It's guaranteed that val does not exist in the original BST.
-public class InsertIntoABST {
+import java.util.*;
+public class InsertIntoABSTTwo {
     public TreeNode insertIntoBST(TreeNode root, int val) {
         if (root == null)
             return new TreeNode(val);

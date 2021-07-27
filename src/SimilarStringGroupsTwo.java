@@ -20,9 +20,7 @@
 // 1 <= strs[i].length <= 300
 // strs[i] consists of lowercase letters only.
 // All words in strs have the same length and are anagrams of each other.
-import java.util.*;
-import java.io.*;
-public class SimilarStringGroups{
+public class SimilarStringGroupsTwo{
     int[] par, size;
 
     public int findPar(int u) {
@@ -60,12 +58,6 @@ public class SimilarStringGroups{
         }
 
         return group;
-    }
-    
-    public static void main(String[]args) {
-    	Scanner scn=new Scanner(System.in);
-    	int n=scn.nextInt();
-    	System.out.println(n);
     }
     
 }
