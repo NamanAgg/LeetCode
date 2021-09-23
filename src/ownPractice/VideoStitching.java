@@ -1,4 +1,5 @@
 package ownPractice;
+//I dont know how to solve this question.
 //**********************1024. Video Stitching
 // You are given a series of video clips from a sporting event that lasted time seconds.
 // These video clips can be overlapping with each other and have varying lengths.
