@@ -17,6 +17,7 @@
 // Constraints:
 // 1 <= prices.length <= 5000
 // 0 <= prices[i] <= 1000
+import java.util.*;
 public class BestTimeToBuyAndSellStockWithCooldown{
     public int maxProfit(int[] prices) {
         int dp[][] = new int[prices.length][2];
