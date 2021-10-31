@@ -34,6 +34,8 @@ package ownPractice;
 // cost.length == n
 // 1 <= n <= 105
 // 0 <= gas[i], cost[i] <= 104
+import java.util.*;
+import java.io.*:
 public class GasStation {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int gasSum = 0 , gasCostSum = 0;
@@ -54,7 +56,6 @@ public class GasStation {
                 minIdx=i;
             }
         }
-        
         return minIdx==gas.length-1?0:minIdx+1;
     }
 }
