@@ -29,7 +29,6 @@ public class SingleNumberIII {
             res^=e;
         
         int rightMostBit = res & ~(res-1);
-        int a = 0;
         for(Integer e : nums){
             if((e & rightMostBit)!=0)
                 ans[0]^=e;
