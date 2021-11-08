@@ -1,0 +1,9 @@
+body{
+    position : relative;
+    display : flex;
+}
+div{
+    position : relative;
+    display: flex;
+    justify-content: auto;
+}

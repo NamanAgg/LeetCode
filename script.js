@@ -1,44 +1,18 @@
-// var x = {
-//     a:5,
-//     b:6
-// };
+let arr = [1,1,1,2,2,3,4,5,3,8,5,6,67,4];
+let ans = [];
 
-// console.log(Object.keys(x).length);
+for(let e of arr){
+    let flag = true;
+    for(let i of ans){
+        if(i==e){
+            flag = false;
+            break;
+        }
+    }
+    if(flag==true) {
+        ans.push(e);
+    }
+}
 
-// var count=0;
-
-// .parent{
-//     display : flex,
-//     justify-content : center,
-//     margin : auto
-// }
-
-// .child{
-//     display : flex
-// }
-
-// .parent{
-//     position : relative
-// }
-
-// .child{
-//     position : absolute,
-//     transform
-// }
-
-// (function(str){
-// let arr = str.split(" ");
-
-// let maxLength = 0;
-// let word = ""
-// for(let e of arr){
-//     if(maxLength< e.length){
-//         maxLength = e.length;
-//         word = e;
-//     }
-// }
-
-// console.log(maxLength,word);
-
-// })("terminator is less older than neo");
+console.log(ans);
 
