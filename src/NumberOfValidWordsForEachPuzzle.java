@@ -30,6 +30,8 @@
 // puzzles[i].length == 7
 // words[i] and puzzles[i] consist of lowercase English letters.
 // Each puzzles[i] does not contain repeated characters.
+import java.util.*;
+import java.io.*;
 public class NumberOfValidWordsForEachPuzzle {
     List<Integer> ll;
     public List<Integer> findNumOfValidWords(String[] words, String[] puzzles) {
