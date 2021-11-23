@@ -21,37 +21,50 @@
 // 1 <= nums[i] <= 105
 // All the values of nums are unique.
 public class LargestComponentSizeByCommonFactor {
-    int[]size;
     int[]par;
     public int findPar(int u){
         return (u==par[u]) ? u : (par[u] = findPar(par[u]));
     }
     
-    public int unionFind(int a ,int b){
+    public void unionFind(int a ,int b){
         int p1 = findPar(a);
         int p2 = findPar(b);
-        int s1 = size[p1];
-        int s2 = size[p2];
-        if(p1!=p2){
-            if(s1>s2){
-                size[p1] += size[p2];
-                par[p2] = p1;
-            }
-            else{
-                size[p2] += size[p1];
-                par[p1] = p2;
-            }
-        }
+        
+        if(p1!=p2)
+            par[p1] = p2;
     }
     public int largestComponentSize(int[] nums) {
         int n = nums.length;
-        size = new int[n];
-        par = new int[n];
-        for(int i=0;i<n;i++){
-            par[i] = nums[i];
-            size[i] = 1;
+        int max = findMax(nums);
+        par = new int[max+1];
+        for(int i=0;i<par.length;i++)
+            par[i] = i;
+        
+        
+        for(Integer e : nums){
+            for(int i=2;i*i<=e;i++){
+                if(e%i==0){
+                    unionFind(e,i);
+                    unionFind(e,e/i);
+                }
+            }
         }
         
+        HashMap<Integer,Integer> freqMapParent = new HashMap<>();
+        for(Integer e : nums)
+            freqMapParent.put(findPar(e),freqMapParent.getOrDefault(findPar(e),0)+1);
         
+        int ans = 0;
+        for(int e : freqMapParent.keySet())
+            ans = Math.max(freqMapParent.get(e),ans);
+        
+        return ans;
+    }
+    
+    public int findMax(int[]arr){
+        int max = Integer.MIN_VALUE;
+        for(Integer e : arr)
+            max = Math.max(max,e);
+        return max;
     }
 }
