@@ -57,3 +57,4 @@ public class NthMagicalNumber {
        return (long)(x / findGcd(x, y)) * y;  
    }     
 }
+
