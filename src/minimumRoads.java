@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 public class minimumRoads {
+    //TC : O(N*M*LOG(M))
     public static int minimumRoadsAns(int n,int[][]queries){
         PriorityQueue<int[]> pq = new PriorityQueue<>((a,b)->{
             int diff1 = a[1]-a[0];
@@ -48,3 +49,4 @@ public class minimumRoads {
     }
 
 }
+
