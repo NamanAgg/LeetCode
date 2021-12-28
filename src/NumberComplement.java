@@ -20,6 +20,7 @@
 // Note: This question is the same as 1009: https://leetcode.com/problems/complement-of-base-10-integer/
 public class NumberComplement {
     public int findComplement(int num) {
+        if(num==0) return 1;
         int nBits = (int) Math.floor((Math.log(num) / Math.log(2)) + 1);
         int mask = (1 << nBits) - 1;
         return num^mask;
