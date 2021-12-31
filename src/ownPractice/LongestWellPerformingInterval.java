@@ -18,6 +18,8 @@ package ownPractice;
 // Constraints:
 // 1 <= hours.length <= 104
 // 0 <= hours[i] <= 16
+
+    //the question is very similar to subarray sum equals to k.
 public class LongestWellPerformingInterval {
      //the question is very similar to subarray sum equals to k.
      public int longestWPI(int[] hours) {
