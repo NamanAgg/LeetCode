@@ -32,6 +32,22 @@
 // 1 <= points.length <= 105
 // points[i].length == 2
 // -231 <= xstart < xend <= 231 - 1
+// Link of the solution : https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/discuss/1686598/Well-Detailed-Explaination-Java-C%2B%2B-Python-oror-Easy-for-mind-to-Accept-it 
 public class MinimumNumberOfArrowsToBurstBalloons {
+     // Link of the solution : https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/discuss/1686598/Well-Detailed-Explaination-Java-C%2B%2B-Python-oror-Easy-for-mind-to-Accept-it
+     public int findMinArrowShots(int[][] points) {
+        if(points.length == 0) return 0; 
+        Arrays.sort(points, (a, b) -> Integer.compare(a[1], b[1]));
+        int arrows = 1;
+        int end = points[0][1];
+        
+        for(int i = 1; i < points.length; i++){
+            if(points[i][0] > end){
+                arrows++;
+                end = points[i][1];
+            }
+        }
+        return arrows;
+    }
     
 }
