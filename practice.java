@@ -183,36 +183,34 @@ public class practice {
     //     return graph;
     // }
 
- public int[] startingPoints(int input1,int[]input2){
-        // int[]ans = new int[input1];
-        for(int i=0;i<input1;i++){
-            int val = input2[i];
-            if(val>0){
-                int j = (2*(i+1))-1;
-                for(j=(2*(i+1))-1;j<input1;j+=i+1){
-                    input2[j]-=val;
-                }
-            }
+    public static double polygonArea(double X[], double Y[], 
+                                                       int n)
+    {
+        // Initialize area
+        double area = 0.0;
+      
+        // Calculate value of shoelace formula
+        int j = n - 1;
+        for (int i = 0; i < n; i++)
+        {
+            area += (X[j] + X[i]) * (Y[j] - Y[i]);
+              
+            // j is previous vertex to i
+            j = i; 
         }
-        return input2;
+      
+        // Return absolute value
+        return Math.abs(area / 2.0);
     }
 
-    public int[] toffees(int n,int k){
-        int[] ans = new int[k];
-        int j=0;
-        while(n>0){
-            for(int i=0;i<k;i++){
-                j++;
-                if(n<=0)
-                    break;
-                else{
-                    if(j<n) ans[i] = ans[i]+j;
-                    else ans[i] = ans[i]+n;
-                    n = n-j;
-                }
-            }
-        }
+    public int takeInput(){
+        int n = scn.nextInt();
+        int m = scn.nextInt();
+        double[][]points = new int[2][n];
+        double[][]cutPoints = new int[2][m];
+        for(int i=0;i<n;i++){
 
-        return ans;
+        }
     }
+//  
 }
