@@ -1,4 +1,5 @@
 //***************1675. Minimize Deviation in Array
+// HARD
 // You are given an array nums of n positive integers.
 // You can perform two types of operations on any element of the array any number of times:
 // If the element is even, divide it by 2.
