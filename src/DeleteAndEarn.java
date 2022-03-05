@@ -26,5 +26,35 @@
 // 1 <= nums.length <= 2 * 104
 // 1 <= nums[i] <= 104
 public class DeleteAndEarn {
+    public int deleteAndEarn(int[] nums) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(Integer e : nums) map.put(e, map.getOrDefault(e,0)+1);
+        ArrayList<Integer> list = new ArrayList<>();     
+        for(Integer e : map.keySet()) list.add(e);
+        
+        int[]arr = new int[list.size()];
+        int i = 0;
+        for(Integer e : list)
+            arr[i++] = e;
+
+        Arrays.sort(arr);
+        int[]dp = new int[arr.length];
+        Arrays.fill(dp,-1);
+        return deleteAndEarn(arr, arr.length-1, dp, map);
+    }
     
+    public int deleteAndEarn(int[]arr, int idx, int[]dp,HashMap<Integer,Integer>map){
+        if(idx<0) return 0;
+        if(idx==0)return dp[idx] = arr[idx] * map.get(arr[idx]);
+        
+        if(dp[idx]!=-1) return dp[idx];
+        
+        int myVal = arr[idx]*map.get(arr[idx]);
+        if(arr[idx-1]==arr[idx]-1){
+            int first = deleteAndEarn(arr, idx-2, dp, map)+myVal;
+            int second  = deleteAndEarn(arr, idx-1, dp, map);
+            return dp[idx] = Math.max(first, second);
+        }
+        return dp[idx] = deleteAndEarn(arr,idx-1, dp, map) + myVal;
+    }
 }
