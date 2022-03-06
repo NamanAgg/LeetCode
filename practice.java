@@ -209,8 +209,15 @@ public class practice {
         double[][]points = new int[2][n];
         double[][]cutPoints = new int[2][m];
         for(int i=0;i<n;i++){
-
+            points[0][i] = scn.nextDouble();
+            points[1][i] = scn.nextDouble();
         }
+        for(int i=0;i<m;i++){
+            cutPoints[0][i] = scn.nextDouble();
+            cutPoints[1][i] = scn.nextDouble();
+        }
+
+        double area =  
     }
 //  
 }
